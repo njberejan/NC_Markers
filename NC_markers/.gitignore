@@ -1,1 +1,7 @@
-secrets.py
+.DS_Store
+.envrc
+.direnv
+__pycache__
+*.pyc
+.ipynb_checkpoints
+.env
