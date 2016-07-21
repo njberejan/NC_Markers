@@ -21,7 +21,7 @@ class MarkerModel(models.Model):
     gps = models.CharField(max_length=1, default='N')
     unique_key = models.CharField(max_length=50)
     y_coord = models.FloatField()
-    sketch = models.CharField() #no max length?
+    sketch = models.TextField() 
     x_coord = models.FloatField()
     object_id = models.IntegerField()
 
