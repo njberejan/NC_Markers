@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 secrets.py
+=======
+.DS_Store
+.envrc
+.direnv
+__pycache__
+*.pyc
+.ipynb_checkpoints
+.env
+>>>>>>> 7cc1b08f3171536e660f8ced692d3836b42c24c9

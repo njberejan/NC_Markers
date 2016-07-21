@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'NC_markers.wsgi.application'
 
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
