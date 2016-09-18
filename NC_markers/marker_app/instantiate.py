@@ -1,9 +1,10 @@
-from models import MarkerModel
-from objects import MarkerClass
+from .models import MarkerModel
+from .objects import MarkerClass
 import requests
 import json
 
 def get_data_from_API():
+    """rows should be 6028 for full data set"""
 
     url = "https://opendurham.nc.gov/api/records/1.0/search/"
     parameters = {"dataset": "nc-historic-road-markers", "rows": "6028"}
@@ -17,21 +18,24 @@ def get_data_from_API():
 def create_marker_model_list(the_dict):
 
     marker_list = []
-
-    for key, value in the_dict['records'].items():
-        marker = MarkerClass(value)
+    # print('length of list: ', len(the_dict['records']))
+    for each_list_index in the_dict['records']:
+        # print('list: ', the_list)
+        # for key, value in the_list['fields'].items():
+        #     print('value: ', value)
+        marker = MarkerClass(each_list_index['fields'])
         marker_list.append(marker)
 
     return marker_list
 
 def save_models_to_database():
-
+    count = 0
     marker_dictionary = get_data_from_API()
     marker_model_list = create_marker_model_list(marker_dictionary)
     for marker in marker_model_list:
         marker_model = MarkerModel(
-            recordid = marker.recordid,
-            record_timestamp = marker.record_timestamp,
+            # recordid = marker.recordid,
+            # record_timestamp = marker.record_timestamp,
             field_id = marker.field_id,
             field_yearcast = marker.field_yearcast,
             field_geo_point_2d_0 = marker.field_geo_point_2d_0,
@@ -49,6 +53,8 @@ def save_models_to_database():
             y_coord = marker.y_coord,
             sketch = marker.sketch,
             x_coord = marker.x_coord,
-            object_id = marker.object_id,    
+            object_id = marker.object_id,
         )
         marker_model.save()
+        count += 1
+        print(count)

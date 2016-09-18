@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'marker_app.apps.MarkerAppConfig',
     'rest_framework',
-    'marker_app',
 ]
 
 MIDDLEWARE_CLASSES = [
