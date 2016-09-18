@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from marker_app.views import MarkersView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/markers/$', MarkersView.as_view(), name='markers'),
     url(r'', include('marker_app.urls', namespace="marker_app")),
 ]

@@ -55,6 +55,6 @@ def save_models_to_database():
             x_coord = marker.x_coord,
             object_id = marker.object_id,
         )
-        marker_model.save()
+        # marker_model.save()
         count += 1
         print(count)

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Marker Data</title>
+  </head>
+  <body>
+    <h3>Select a Marker to View Context</h3>
+    <select class="markerlist" name="marker">
+      {% for markermodel in marker_list %}
+      <option {% if marker == markermodel.marker_title %} selected="selected"{% endif %}>{{markermodel.marker_title}}</option>
+      {% endfor %}
+    </select>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/js/data_app.js"></script>
+  </body>
+</html>
